@@ -1,6 +1,6 @@
 {
   "name": "formality-loader",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Formality language loader for webpack",
   "homepage": "https://github.com/g-guimaraes/formality-loader",
   "bugs": "https://github.com/g-guimaraes/formality-loader/issues",
