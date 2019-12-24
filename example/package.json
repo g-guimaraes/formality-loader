@@ -1,0 +1,17 @@
+{
+  "name": "formality-loader-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack -p src/index.js"
+  },
+  "author": "Guilherme Guimarães <g-guimaraes@live.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "formality-loader": "latest",
+    "webpack": "^4.41.4"
+  }
+}

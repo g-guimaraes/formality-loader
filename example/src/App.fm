@@ -1,0 +1,4 @@
+import Base#
+
+main(n: Number) : Number
+  2 .*. n
