@@ -6,8 +6,13 @@ const localLoader = require('formality-lang/cjs/fs-local.js')(
 module.exports = function loader(content) {
   const fileName = this.currentRequest.split('/').pop()
   const file = fileName.replace('.fm', '')
-  return fm.parse(content, { loader: localLoader, file }).then(({ defs }) => {
-    const js = fm.js.compile(fm.core.Ref(file + '/main'), defs)
-    return 'module.exports = ' + js
-  })
+  return fm
+    .parse(content, { loader: localLoader, file })
+    .then(({ defs }) => {
+      const js = fm.js.compile(fm.core.Ref(file + '/main'), defs)
+      return 'module.exports = ' + js
+    })
+    .catch(err => {
+      throw new Error(err)
+    })
 }
