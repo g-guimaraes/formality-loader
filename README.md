@@ -20,7 +20,10 @@ module.exports = {
     rules: [
       {
         test: /\.fm$/,
-        loader: 'formality-loader'
+        loader: 'formality-loader',
+        options: {
+          typeCheckMode: 'all' // Options: all, none, production, development. Default: all
+        }
       }
     ]
   }
