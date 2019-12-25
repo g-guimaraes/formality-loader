@@ -17,7 +17,13 @@ module.exports = function loader(content) {
       loader: localLoader(fm.loader.load_file, this.context),
       file
     })
-    .then(({ defs }) => {
+    .then(({ defs, open_imports }) => {
+      // Adding local imports as a file dependency
+      Object.entries(open_imports)
+        .filter(([name, value]) => value && name.indexOf('#') === -1)
+        .map(([name]) => path.join(this.context, name + '.fm'))
+        .forEach(this.addDependency)
+
       if (shouldCheckTypes) fm.core.typecheck('App/main', null, defs, {})
 
       const js = fm.js.compile(fm.core.Ref(file + '/main'), defs)
