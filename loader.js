@@ -24,9 +24,11 @@ module.exports = function loader(content) {
         .map(([name]) => path.join(this.context, name + '.fm'))
         .forEach(this.addDependency)
 
-      if (shouldCheckTypes) fm.core.typecheck('App/main', null, defs, {})
+      const refName = file + '/main'
 
-      const js = fm.js.compile(fm.core.Ref(file + '/main'), defs)
+      if (shouldCheckTypes) fm.core.typecheck(refName, null, defs, {})
+
+      const js = fm.js.compile(fm.core.Ref(refName), defs)
       return 'module.exports = ' + js
     })
     .catch(err => {
