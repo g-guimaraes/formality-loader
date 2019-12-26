@@ -20,10 +20,7 @@ module.exports = {
     rules: [
       {
         test: /\.fm$/,
-        loader: 'formality-loader',
-        options: {
-          typeCheckMode: 'all' // Options: all, none, production, development. Default: all
-        }
+        loader: 'formality-loader'
       }
     ]
   }
@@ -37,9 +34,9 @@ In your JavaScript file, import (or require) your Formality files including the 
 **src/index.js**
 
 ```js
-import app from './App.fm'
+import { main } from './App.fm'
 
-console.log(app(10))
+console.log(main(10))
 ```
 
 **src/App.fm**

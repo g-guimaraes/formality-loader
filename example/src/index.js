@@ -1,3 +1,3 @@
-const fm = require('./App.fm')
+import { main } from './App.fm'
 
-console.log(fm(10))
+console.log(main(10))
