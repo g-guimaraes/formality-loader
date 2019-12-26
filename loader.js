@@ -1,7 +1,7 @@
 const path = require('path')
 const fm = require('formality-lang')
 const loaderUtils = require('loader-utils')
-const localLoader = require('formality-lang/cjs/fs-local.js')
+const localLoader = require('formality-lang/dist/fs-local.js').with_local_files;
 
 module.exports = function loader(content) {
   const options = loaderUtils.getOptions(this) || {}
@@ -24,11 +24,10 @@ module.exports = function loader(content) {
         .map(([name]) => path.join(this.context, name + '.fm'))
         .forEach(this.addDependency)
 
-      const refName = file + '/main'
+      //TODO: check all in defs
+      //if (shouldCheckTypes) fm.core.typecheck(refName, null, defs, {})
 
-      if (shouldCheckTypes) fm.core.typecheck(refName, null, defs, {})
-
-      const js = fm.js.compile(fm.core.Ref(refName), defs)
+      const js = fm.js.compile(file+"/@", defs)
       return 'module.exports = ' + js
     })
     .catch(err => {
