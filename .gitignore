@@ -1,5 +1,7 @@
 dist
+fm_modules
 .DS_Store
+package-lock.json
  
 ### Node ###
 # Logs

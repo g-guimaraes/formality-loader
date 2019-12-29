@@ -1,0 +1,7 @@
+import Base#
+
+bar : Number
+  10
+
+foo : Number
+  100

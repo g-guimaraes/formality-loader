@@ -1,6 +1,6 @@
 {
   "name": "formality-loader",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "Formality language loader for webpack",
   "homepage": "https://github.com/g-guimaraes/formality-loader",
   "repository": {
@@ -18,11 +18,8 @@
   "files": [
     "loader.js"
   ],
-  "dependencies": {
-    "formality-lang": "^0.1.231",
-    "loader-utils": "^1.2.3"
-  },
   "peerDependencies": {
-    "webpack": "^4.41.4"
+    "formality-lang": "~0.1",
+    "webpack": "^4.41.5"
   }
 }

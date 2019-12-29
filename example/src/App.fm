@@ -1,4 +1,9 @@
 import Base#
+import Foo
+import Area#o99z
 
 main(n: Number) : Number
-  2 .*. n
+  n .*. bar
+
+value : Number
+  10 .*. PI
